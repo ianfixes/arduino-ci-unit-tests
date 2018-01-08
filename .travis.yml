@@ -1,0 +1,19 @@
+language: python
+python:
+    - "2.7"
+
+sudo: false
+cache:
+    directories:
+        - "~/.platformio"
+
+env:
+    - PLATFORMIO_CI_SRC=examples/DoSomething/DoSomething.ino
+
+install:
+    - pip install -U platformio
+
+script:
+    # board IDS come from here I think
+    #  http://docs.platformio.org/en/latest/platforms/atmelavr.html#arduino
+    - platformio ci --lib="." --board=uno
